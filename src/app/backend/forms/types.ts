@@ -31,8 +31,9 @@ export type FormElement =
     | Image
     | NumberInput
     | Toggle
-    | Form
     | PageBreak;
+
+export type ChoiceElement = CheckboxGroup | RadioGroup | Dropdown;
 
 export type ChoiceOption = {
     id: string;
@@ -114,6 +115,7 @@ export type FileUpload = {
     required: boolean;
     acceptedFileTypes?: string[];
     maxFileSize?: number; // in bytes
+    maxFiles?: number;
 };
 
 export type NumberInput = {
@@ -132,7 +134,7 @@ export type Slider = {
     required: boolean;
     min: number;
     max: number;
-    step?: number;
+    step: number;
 };
 
 export type Image = {
