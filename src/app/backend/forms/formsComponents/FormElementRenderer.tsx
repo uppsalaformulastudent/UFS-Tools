@@ -20,6 +20,12 @@ type Props = {
     element: FormElement;
 };
 
+/**
+ * @brief Renders a form element based on its type.
+ * @param {Props} props - The props containing the form element to render.
+ * @returns {JSX.Element | null} The rendered form element or null if the type is not recognized.
+ */
+
 export function FormElementRenderer({ element }: Props) {
     switch (element.type) {
         case "textbox":

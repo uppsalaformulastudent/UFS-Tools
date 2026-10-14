@@ -24,11 +24,11 @@ import { createToggle } from "@/app/backend/forms/factories";
 import { createImage } from "@/app/backend/forms/factories";
 import { createHeader } from "@/app/backend/forms/factories";
 import { createParagraph } from "@/app/backend/forms/factories";
+import { createDivider } from "@/app/backend/forms/factories";
 
-import { FormElementRenderer } from "@/app/backend/forms/formsComponents/FormElementRenderer";
 import { FormRenderer } from "@/app/backend/forms/formsComponents/FormRenderer";
 
-export default function TestPage() {
+export default function Editor() {
     const form = {
         title: "Test Form",
         description: "This is a test form.",
@@ -41,6 +41,8 @@ export default function TestPage() {
             createNumberInput("Enter your age", true, 0, 120),
             createSlider("Select your satisfaction level", true, 0, 10),
             createToggle("Enable notifications", false),
+            createDivider(),
+            createImage("https://via.placeholder.com/500", "Placeholder Image"),
             createHeader("Section 1", "h1"),
             createParagraph("This is a paragraph of text."),
         ],

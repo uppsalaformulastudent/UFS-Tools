@@ -1,10 +1,14 @@
-import type {divider} from "./types";
+import type { Divider as DividerType } from "../types";
 
 type DividerProps = {
-    element: divider;
+    element: DividerType;
 };
 
 export function Divider({ element }: DividerProps) {
-    return <hr />;
+    return (
+        <hr
+            id={element.id}
+            className="my-4 w-full border-0 border-t border-zinc-300 dark:border-zinc-700"
+        />
+    );
 }
-
