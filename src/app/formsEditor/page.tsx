@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import type { Form } from "@/app/backend/forms/types";
 import { Textbox } from "@/app/backend/forms/formsComponents/Textbox";
 import { Checkbox } from "@/app/backend/forms/formsComponents/Checkbox";
 import { CheckboxGroup } from "@/app/backend/forms/formsComponents/CheckboxGroup";
@@ -27,33 +31,45 @@ import { createParagraph } from "@/app/backend/forms/factories";
 import { createDivider } from "@/app/backend/forms/factories";
 
 import { FormRenderer } from "@/app/backend/forms/formsComponents/FormRenderer";
+import { ElementPicker } from "./Components/ElementPicker";
 
 export default function Editor() {
-    const form = {
-        title: "Test Form",
-        description: "This is a test form.",
-        elements: [
-            createTextbox("Name", true, false, "Enter your name"),
-            createTextbox("Message", false, true, "Enter your message"),
-            createCheckbox("I agree to the terms and conditions", true),
-            createDatePicker("Select your birthdate", true),
-            createFileUpload("Upload your resume", true),
-            createNumberInput("Enter your age", true, 0, 120),
-            createSlider("Select your satisfaction level", true, 0, 10),
-            createToggle("Enable notifications", false),
-            createDivider(),
-            createImage("https://via.placeholder.com/500", "Placeholder Image"),
-            createHeader("Section 1", "h1"),
-            createParagraph("This is a paragraph of text."),
-        ],
-    };
+    const [form, setForm] = useState<Form | null>(null);
 
-    const textbox = form.elements[0] as FormElement;
-    const multilineTextbox = form.elements[1] as FormElement;
+    useEffect(() => {
+        setForm({
+            title: "Test Form",
+            description: "This is a test form.",
+            elements: [
+                createTextbox("Name", true, false, "Enter your name"),
+                createTextbox("Message", false, true, "Enter your message"),
+                createCheckbox("I agree to the terms and conditions", true),
+                createDatePicker("Select your birthdate", true),
+                createFileUpload("Upload your resume", true),
+                createNumberInput("Enter your age", true, 0, 120),
+                createSlider("Select your satisfaction level", true, 0, 10),
+                createToggle("Enable notifications", false),
+                createDivider(),
+                createImage("https://via.placeholder.com/500", "Placeholder Image"),
+                createHeader("Section 1", "h1"),
+                createParagraph("This is a paragraph of text."),
+            ],
+        });
+    }, []);
+
+    if (!form) {
+        return <main className="mx-auto max-w-2xl p-8">Loading editor...</main>;
+    }
 
     return (
         <main className="mx-auto max-w-2xl space-y-6 p-8">
             <FormRenderer form={form} />
+
+            <ElementPicker
+                onSelect={(element) =>
+                    console.log("Selected element:", element)
+                }
+            />
         </main>
     );
 }
