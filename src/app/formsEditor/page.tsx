@@ -53,6 +53,21 @@ export default function Editor() {
                 createImage("https://via.placeholder.com/500", "Placeholder Image"),
                 createHeader("Section 1", "h1"),
                 createParagraph("This is a paragraph of text."),
+                createCheckboxGroup("Select your favorite fruits", true, [
+                    { id: "apple", label: "Apple", value: "apple" },
+                    { id: "banana", label: "Banana", value: "banana" },
+                    { id: "cherry", label: "Cherry", value: "cherry" },
+                ]),
+                createRadioButtonGroup("Select your gender", true, [
+                    { id: "male", label: "Male", value: "male" },
+                    { id: "female", label: "Female", value: "female" },
+                    { id: "other", label: "Other", value: "other" },
+                ]),
+                createDropdown("Select your country", true, [
+                    { id: "us", label: "United States", value: "us" },
+                    { id: "ca", label: "Canada", value: "ca" },
+                    { id: "uk", label: "United Kingdom", value: "uk" },
+                ]),
             ],
         });
     }, []);

@@ -12,9 +12,9 @@ import { Image } from "@/app/backend/forms/formsComponents/Image";
 import { Header } from "@/app/backend/forms/formsComponents/Header";
 import { Paragraph } from "@/app/backend/forms/formsComponents/Paragraph";
 
-// import { RadioGroup } from "@/app/backend/forms/formsComponents/RadioGroup";
-// import { CheckboxGroup } from "@/app/backend/forms/formsComponents/CheckboxGroup";
-// import { Dropdown } from "@/app/backend/forms/formsComponents/Dropdown";
+import { RadioButtonGroup } from "@/app/backend/forms/formsComponents/RadioGroup";
+import { CheckboxGroup } from "@/app/backend/forms/formsComponents/CheckboxGroup";
+import { Dropdown } from "@/app/backend/forms/formsComponents/Dropdown";
 
 type Props = {
     element: FormElement;
@@ -34,14 +34,14 @@ export function FormElementRenderer({ element }: Props) {
         case "checkbox":
             return <Checkbox element={element} />;
 
-        // case "checkboxGroup":
-        //     return <CheckboxGroup element={element} />;
-        //
-        // case "radio":
-        //     return <RadioButtonGroup element={element} />;
-        //
-        // case "dropdown":
-        //     return <Dropdown element={element} />;
+        case "checkboxGroup":
+            return <CheckboxGroup element={element} />;
+
+        case "RadioButtonGroup":
+            return <RadioButtonGroup element={element} />;
+
+        case "dropdown":
+            return <Dropdown element={element} />;
 
         case "date":
             return <DatePicker element={element} />;

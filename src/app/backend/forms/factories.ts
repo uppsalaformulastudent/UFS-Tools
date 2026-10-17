@@ -76,7 +76,7 @@ export function createCheckbox(label: string, required: boolean): Checkbox {
 export function createCheckboxGroup(
     label: string,
     required: boolean,
-    options: ChoiceOption[],
+    options: ChoiceOption[] = [],
 ): CheckboxGroup {
     return {
         type: "checkboxGroup",
@@ -96,7 +96,7 @@ export function createCheckboxGroup(
 export function createRadioButtonGroup(
     label: string,
     required: boolean,
-    options: ChoiceOption[],
+    options: ChoiceOption[] = [],
 ): RadioGroup {
     return {
         type: "radio",
@@ -116,7 +116,7 @@ export function createRadioButtonGroup(
 export function createDropdown(
     label: string,
     required: boolean,
-    options: ChoiceOption[],
+    options: ChoiceOption[] = [],
 ): Dropdown {
     return {
         type: "dropdown",
