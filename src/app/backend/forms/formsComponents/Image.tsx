@@ -9,7 +9,7 @@ export function Image({ element }: ImageProps) {
 
     return (
         <div>
-            <img id={id} src={src} alt={alt} />)
+            <img id={id} src={src} alt={alt} />
         </div>
     );
 }

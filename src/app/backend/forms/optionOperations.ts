@@ -70,7 +70,22 @@ export function updateOption(element: FormElement, newOption: ChoiceOption, oldI
     };
 }
 
-export function moveOption() {}
+export function moveOption(element: FormElement, id: string, index: number):FormElement {
+    if (!isChoiceElement(element)) {
+        return element;
+    }
+    if(getOption(element, id) === undefined) {
+        return element;
+    }
+    if (!Number.isInteger(index) || index < 0 || index >= element.options.length) {
+        return element;
+    }
+
+    const tempOption = getOption(element, id);
+    const newElement = removeOption(element, id);
+
+    return insertOption(newElement, tempOption, index);
+}
 
 /**
  * @brief Inserts an option at a specified index in a choice element

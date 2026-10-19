@@ -37,7 +37,7 @@ export function FormElementRenderer({ element }: Props) {
         case "checkboxGroup":
             return <CheckboxGroup element={element} />;
 
-        case "RadioButtonGroup":
+        case "radio":
             return <RadioButtonGroup element={element} />;
 
         case "dropdown":
